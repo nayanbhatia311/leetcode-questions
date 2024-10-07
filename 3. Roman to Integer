@@ -1,0 +1,34 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        num=0
+        prev='Z' #random initialisation
+        for i in s:
+            if i=='M':
+                if prev=='C':
+                    num-=200
+                num+=1000
+            elif i=='D':
+                if prev=='C':
+                    num-=200
+                num+=500
+            elif i=='C':
+                if prev=='X':
+                    num-=20
+                num+=100
+            elif i=='L':
+                if prev=='X':
+                    num-=20
+                num+=50
+            elif i=='X':
+                if prev=='I':
+                    num-=2
+                num+=10
+            elif i=='V':
+                if prev=='I':
+                    num-=2
+                num+=5
+            elif i=='I':
+                num+=1
+
+            prev=i
+        return num
