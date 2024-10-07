@@ -1,0 +1,21 @@
+class Solution:
+    def minLength(self, s: str) -> int:
+        stack=list()
+
+        for index,i in enumerate(s):
+            current=i
+            flag=0
+            if current == 'B' and len(stack)>0:
+                if stack[len(stack)-1]=='A':
+                    stack.pop()
+                    flag=1
+            if current == 'D' and len(stack)>0:
+                if stack[len(stack)-1]=='C':
+                    stack.pop()
+                    flag=1
+            if flag==0:
+                stack.append(i)
+        # print(stack)
+        return len(stack)
+            
+
